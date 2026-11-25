@@ -9,8 +9,8 @@ import s from "./page.module.css";
 // Пустой адрес — «скоро»: строка видна, но не кликается (как aboutLinks в плагине).
 const downloadUrl = "";
 const links: [name: string, url: string][] = [
-  ["telegram", ""],
-  ["github", ""],
+  ["telegram", "https://t.me/lnhly"],
+  ["github", "https://github.com/lunnaholy/gentra-fx"],
 ];
 
 const version = "1.0.0";
