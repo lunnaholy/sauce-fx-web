@@ -160,7 +160,7 @@ export default function GentraFX() {
           ))}
         </nav>
         <p>© 2026 lunnaholy</p>
-        <p className={s.fine}>шрифт PT sans narrow — paratype free font license. сделано на JUCE, без запчастей с авторынка.</p>
+        <p className={s.fine}>шрифт PT sans narrow — paratype free font license. сделано на JUCE, чистейший вайбкод</p>
       </footer>
     </main>
   );
