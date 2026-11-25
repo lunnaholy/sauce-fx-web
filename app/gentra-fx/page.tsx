@@ -18,7 +18,7 @@ const version = "1.0.0";
 
 export const metadata: Metadata = {
   title: "sauce gentra fx",
-  description: "тачки с дорог ташкента стали плагином для твоей поеботы. VST3 и AU.",
+  description: "тачки с дорог ташкента специально для твоей поеботы. VST3 и AU.",
   openGraph: { images: "/gentra-fx/shot-garage.jpg", locale: "ru_RU" },
 };
 
@@ -68,7 +68,7 @@ export default function GentraFX() {
             <Image src="/gentra-fx/plate.png" alt="" width={380} height={72} priority />
           </h1>
           <p className={s.tagline}>«воой акя бу малибу ики турбоми??»</p>
-          <p className={s.lead}>тачки с дорог ташкента стали плагином для твоей поеботы</p>
+          <p className={s.lead}>тачки с дорог ташкента специально для твоей поеботы</p>
           <div className={s.cta}>
             <Soon url={downloadUrl} className={`plate ${s.button}`}>
               скачать
