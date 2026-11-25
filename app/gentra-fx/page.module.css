@@ -1,0 +1,289 @@
+/* ---------- герой ---------- */
+.hero {
+  --u: min(100vw / 900, 72svh / 560);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Небо до горизонта сцены (y = 200 из 560), как в плагине — растянуто. */
+.sky {
+  position: absolute;
+  inset: 0 0 calc(360 * var(--u)) 0;
+  background: url("/gentra-fx/sky.jpg") center bottom / 100% 100%;
+}
+
+.intro {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: clamp(28px, 6vh, 72px) 16px clamp(8px, 2vh, 24px);
+  text-align: center;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
+}
+
+/* Номер висит на левом болте и качается; раз в 5 с по нему бежит блик (UI-13 в плагине). */
+.badge {
+  position: relative;
+  width: min(380px, 86vw);
+  transform-origin: 5% 50%;
+  animation: swing 5s ease-in-out infinite;
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.5));
+}
+
+.badge::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.75) 50%, transparent 60%) -150% 0 / 250% 100% no-repeat;
+  mask: url("/gentra-fx/plate.png") 0 0 / 100% 100%;
+  animation: glint 5s ease-in-out infinite;
+}
+
+@keyframes swing {
+  0%, 100% { transform: rotate(1.2deg); }
+  12% { transform: rotate(-2.2deg); }
+  26% { transform: rotate(1.6deg); }
+  40% { transform: rotate(-0.8deg); }
+  55% { transform: rotate(0.9deg); }
+}
+
+@keyframes glint {
+  0%, 70% { background-position: -150% 0; }
+  90%, 100% { background-position: 250% 0; }
+}
+
+.tagline {
+  font-size: clamp(22px, 3.2vw, 32px);
+  color: #ffd9a8;
+}
+
+.lead {
+  max-width: 34em;
+  font-size: clamp(18px, 2vw, 22px);
+  color: var(--text);
+}
+
+.cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.cta small {
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.button {
+  display: inline-block;
+  font-size: 24px;
+  text-decoration: none;
+  text-shadow: none;
+  transition: transform 0.15s;
+}
+
+a.button:hover {
+  transform: translateY(-2px);
+}
+
+.soon {
+  cursor: default;
+  opacity: 0.75;
+}
+
+/* ---------- секции ---------- */
+.section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(48px, 8vw, 96px) 16px 0;
+}
+
+.section h2 {
+  font-size: clamp(30px, 4.5vw, 46px);
+  line-height: 1.1;
+  color: var(--sunset);
+}
+
+.sub {
+  margin-top: 10px;
+  max-width: 40em;
+  color: var(--muted);
+}
+
+.shot {
+  margin-top: 28px;
+}
+
+.shot img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.shot figcaption {
+  margin-top: 8px;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+/* ---------- машины ---------- */
+.grid {
+  list-style: none;
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+  gap: 8px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.num {
+  position: absolute;
+  top: -8px;
+  left: 4px;
+  font-size: 15px;
+  opacity: 0.45;
+}
+
+.cardCar {
+  width: 78%;
+  margin: 8px 0 6px;
+  transition: transform 0.25s;
+}
+
+.card:hover .cardCar {
+  transform: translateX(6px);
+}
+
+/* Лента-плашка над машиной, как в плагине. */
+.tag {
+  padding: 6px 26px;
+  background: url("/gentra-fx/tag.png") center / 100% 100%;
+  font-size: 22px;
+  font-weight: inherit;
+}
+
+.model {
+  margin-top: 2px;
+  font-size: 15px;
+  opacity: 0.6;
+}
+
+.card dl {
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 1.25;
+  text-align: left;
+  width: 100%;
+}
+
+.card dt {
+  margin-top: 6px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #8a5a1c;
+}
+
+/* ---------- гараж ---------- */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.bullets {
+  margin-top: 16px;
+  padding-left: 1.1em;
+  display: grid;
+  gap: 10px;
+}
+
+.bullets li::marker {
+  color: var(--go);
+}
+
+@media (max-width: 900px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- мелочи ---------- */
+.details {
+  list-style: none;
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+  gap: 24px 32px;
+}
+
+.details h3 {
+  font-size: 22px;
+  font-weight: inherit;
+  color: var(--text);
+}
+
+.details p {
+  margin-top: 4px;
+  color: var(--muted);
+}
+
+/* ---------- скачать ---------- */
+.download {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+}
+
+.download h2 {
+  color: var(--ink);
+}
+
+.download .button {
+  border-width: 20px;
+  border-image-width: 20px;
+}
+
+/* ---------- футер ---------- */
+.footer {
+  margin-top: clamp(64px, 10vw, 120px);
+  padding: 40px 16px 48px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+  display: grid;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.brand {
+  font-size: 26px;
+  color: var(--text);
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+.fine {
+  font-size: 13px;
+  opacity: 0.7;
+}
