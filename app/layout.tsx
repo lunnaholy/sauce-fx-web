@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Favicon from "./Favicon";
 import "./globals.css";
 
 // Тот же шрифт, что в плагине (ParaType Free Font License).
@@ -14,7 +15,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="ru" className={ptSans.variable}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Favicon />
+      </body>
     </html>
   );
 }
