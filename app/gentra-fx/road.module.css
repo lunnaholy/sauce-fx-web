@@ -1,0 +1,111 @@
+/* Сцена в единицах плагина (окно 900×560): 1 единица = var(--u), задаётся в .hero страницы.
+   Слои и скорости — как drawScene в RoadView.cpp: земля 1, обочина 1.1, фонари 0.8, город 0.1, горы 0.03. */
+.scene {
+  position: relative;
+  height: calc(560 * var(--u));
+  overflow: hidden;
+  container-type: inline-size;
+}
+
+.strip {
+  position: absolute;
+  left: 0;
+  width: calc(100cqw + var(--tile) * 1);
+  background-repeat: repeat-x;
+  background-size: var(--tile) 100%;
+  animation: slide linear infinite;
+  animation-duration: var(--period);
+  will-change: transform;
+}
+
+@keyframes slide {
+  to {
+    transform: translateX(calc(-1 * var(--tile)));
+  }
+}
+
+.mountains {
+  --tile: calc(1357.5 * var(--u));
+  --period: 204s;
+  top: calc(50 * var(--u));
+  height: calc(150 * var(--u));
+  background-image: url("/gentra-fx/mountains.png");
+}
+
+.skyline {
+  --tile: calc(925 * var(--u));
+  --period: 31s;
+  top: calc(13 * var(--u));
+  height: calc(187 * var(--u));
+  background-image: url("/gentra-fx/skyline.png");
+}
+
+.road {
+  --tile: calc(1333 * var(--u));
+  --period: 6s;
+  top: calc(184.5 * var(--u));
+  height: calc(390 * var(--u));
+  background-image: url("/gentra-fx/road.jpg");
+}
+
+.props {
+  --tile: calc(740 * var(--u));
+  --period: 3s;
+  top: calc(458 * var(--u));
+  height: calc(90 * var(--u));
+  background-image: url("/gentra-fx/props.png");
+}
+
+/* Фонарь 40×150 каждые 280: картинка без повтора внутри плитки 280. */
+.lamps {
+  --tile: calc(280 * var(--u));
+  --period: 1.57s;
+  top: calc(50 * var(--u));
+  height: calc(150 * var(--u));
+  width: auto;
+  display: flex;
+  gap: calc(240 * var(--u));
+}
+
+.lamps img {
+  width: calc(40 * var(--u));
+  height: 100%;
+}
+
+.lane {
+  position: absolute;
+  left: 0;
+  top: calc(var(--lane-y) * var(--u));
+  width: calc(var(--len) * var(--u));
+  translate: 0 -100%;
+  animation: drive linear infinite;
+}
+
+@keyframes drive {
+  from {
+    transform: translateX(calc(-200 * var(--u)));
+  }
+  to {
+    transform: translateX(calc(100cqw + 50 * var(--u)));
+  }
+}
+
+.car {
+  position: relative;
+  container-type: inline-size;
+}
+
+.wheel {
+  position: absolute;
+  height: auto;
+}
+
+.scene .wheel {
+  animation: spin 0.35s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
