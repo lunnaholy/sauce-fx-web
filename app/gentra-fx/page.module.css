@@ -154,7 +154,17 @@ a.button:hover {
   margin-top: 28px;
 }
 
-.shot img {
+/* Ролик 4:3 — во всю ширину секции он выше экрана, поэтому уже. */
+.ad {
+  max-width: 800px;
+}
+
+.shot video {
+  display: block;
+}
+
+.shot img,
+.shot video {
   width: 100%;
   height: auto;
   border-radius: 10px;

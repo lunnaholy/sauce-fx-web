@@ -77,6 +77,14 @@ export default function GentraFX() {
       </section>
 
       <section className={s.section}>
+        <h2>рекламная пауза</h2>
+        <p className={s.sub}>54 секунды, которые тебе никто не вернёт. звука нет — долбить придётся самому</p>
+        <figure className={`${s.shot} ${s.ad}`}>
+          <video src="/gentra-fx/ad.mp4" poster="/gentra-fx/ad-poster.jpg" width={1440} height={1080} controls muted loop playsInline preload="none" />
+        </figure>
+      </section>
+
+      <section className={s.section}>
         <h2>шашки по чиланзару</h2>
         <p className={s.sub}>
           каждая тачка - эффект. это корыто без музыки не тронется, так что чем сильнее крутишь тем быстрее едет
