@@ -72,9 +72,22 @@
   gap: 6px;
 }
 
-.cta small {
-  font-size: 15px;
+.presents {
+  font-size: clamp(16px, 1.8vw, 20px);
+  letter-spacing: 0.18em;
   color: var(--muted);
+}
+
+.platforms {
+  display: flex;
+  gap: 14px;
+}
+
+.platforms svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+  opacity: 0.8;
 }
 
 .button {
@@ -189,9 +202,8 @@ a.button:hover {
 
 .card dt {
   margin-top: 6px;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  font-size: 13px;
+  letter-spacing: 0.04em;
   color: #8a5a1c;
 }
 

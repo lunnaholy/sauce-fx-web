@@ -4,30 +4,31 @@ import { cars } from "./cars";
 import Road, { CarBody } from "./Road";
 import s from "./page.module.css";
 
+// Все надписи на сайте — с маленькой буквы и с иронией.
+
 // Пустой адрес — «скоро»: строка видна, но не кликается (как aboutLinks в плагине).
 const downloadUrl = "";
 const links: [name: string, url: string][] = [
-  ["Telegram", ""],
-  ["YouTube", ""],
-  ["GitHub", ""],
+  ["telegram", ""],
+  ["youtube", ""],
+  ["github", ""],
 ];
 
 const version = "1.0.0";
-const formats = "VST3 · AU · Standalone";
 
 export const metadata: Metadata = {
-  title: "Sauce Gentra FX",
-  description: "Плагин-пробка: 12 машин из Ташкента — 12 эффектов. Колёса — ручки, дорога — цепочка. VST3 и AU для macOS.",
+  title: "sauce gentra fx",
+  description: "тачки с дорог ташкента стали плагином для твоей поеботы. VST3 и AU.",
   openGraph: { images: "/gentra-fx/shot-garage.jpg", locale: "ru_RU" },
 };
 
 const details: [title: string, text: string][] = [
-  ["Трясёт под бит", "Дорога ловит доли из DAW: сильная бьёт сильнее, сила — от низа. На стопе трясёт от пиков баса."],
-  ["Шашки", "Машины перестраиваются, моргают дальним медленным и уступают — у каждой своя скорость, и она зависит от силы эффекта."],
-  ["Вход и выход", "±24 дБ с индикаторами пика L/R и лампой перегруза. Двойной клик — ноль."],
-  ["Окно 60–200%", "Тянется за угол, сцена рисуется сразу в окно — чёткая на любом масштабе. Размер один на все проекты."],
-  ["Бит в бит", "Ручка на нуле или машина в гараже — звук не трогается вообще. Это проверяет тест."],
-  ["Честно с хостом", "Без аллокаций и локов в аудиопотоке, хвосты дилея и реверба отдаются хосту. pluginval strictness 10 — VST3 и AU."],
+  ["трясёт под бит", "дорога ловит доли из DAW: сильная бьёт сильнее. на стопе трясёт от баса — соседи снизу подтвердят."],
+  ["шашки", "тачки перестраиваются, моргают дальним тем, кто тащится, и уступают. скорость каждой зависит от силы эффекта, а не от понтов."],
+  ["вход и выход", "±24 дБ, индикаторы пика L/R и лампа перегруза. двойной клик — ноль. как бортовой компьютер, только работает."],
+  ["окно 60–200%", "тянется за угол и остаётся чётким на любом масштабе. размер один на все проекты — запомнил и больше не спрашивает."],
+  ["бит в бит", "ручка на нуле или тачка в гараже — звук не тронут вообще. это проверяет тест, а не честное слово."],
+  ["честно с хостом", "без аллокаций и локов в аудиопотоке, хвосты дилея и реверба хост видит. pluginval strictness 10 пройден — техосмотр без взятки."],
 ];
 
 function Soon({ url, children, className }: { url: string; children: string; className?: string }) {
@@ -42,48 +43,58 @@ function Soon({ url, children, className }: { url: string; children: string; cla
   );
 }
 
+function Platforms() {
+  return (
+    <p className={s.platforms}>
+      <svg viewBox="0 0 24 24" role="img" aria-label="windows">
+        <path d="M0 3.4 9.8 2v9.4H0zM11 1.8 24 0v11.3H11zM0 12.6h9.8V22L0 20.6zM11 12.6h13V24l-13-1.8z" />
+      </svg>
+      <svg viewBox="0 0 24 24" role="img" aria-label="macOS">
+        <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701" />
+      </svg>
+    </p>
+  );
+}
+
 export default function GentraFX() {
   return (
     <main>
       <section className={s.hero}>
         <div className={s.sky} />
         <header className={s.intro}>
+          <p className={s.presents}>secret sauce presents...</p>
           <h1 className={s.badge}>
-            <span className="visually-hidden">Sauce Gentra FX</span>
+            <span className="visually-hidden">sauce gentra fx</span>
             <Image src="/gentra-fx/plate.png" alt="" width={380} height={72} priority />
           </h1>
           <p className={s.tagline}>«воой акя бу малибу ики турбоми??»</p>
-          <p className={s.lead}>
-            12 машин из Ташкента — 12 эффектов. Колёса — ручки, дорога — цепочка, гараж — порядок.
-          </p>
+          <p className={s.lead}>тачки с дорог ташкента стали плагином для твоей поеботы</p>
           <div className={s.cta}>
             <Soon url={downloadUrl} className={`plate ${s.button}`}>
-              Скачать
+              скачать
             </Soon>
-            <small>
-              {formats} · macOS 11+ · Apple Silicon · v{version}
-            </small>
+            <Platforms />
           </div>
         </header>
         <Road />
       </section>
 
       <section className={s.section}>
-        <h2>Это не интерфейс, это пробка</h2>
+        <h2>это не интерфейс, это пробка на чиланзаре</h2>
         <p className={s.sub}>
-          Каждая машина на дороге — эффект. Чем сильнее крутите, тем быстрее она едет и тем заметнее светится, дымит
-          или приседает.
+          каждая тачка — эффект. крутишь сильнее — едет быстрее, светит ярче, дымит гуще. как в жизни, только звук
+          лучше.
         </p>
         <figure className={s.shot}>
-          <Image src="/gentra-fx/shot-garage.jpg" alt="Окно плагина: дорога с машинами и открытый гараж" width={1800} height={1120} sizes="(max-width: 1100px) 100vw, 1100px" />
+          <Image src="/gentra-fx/shot-garage.jpg" alt="окно плагина: дорога с тачками и открытый гараж" width={1800} height={1120} sizes="(max-width: 1100px) 100vw, 1100px" />
         </figure>
       </section>
 
       <section className={s.section} id="cars">
-        <h2>12 машин — 12 эффектов</h2>
+        <h2>12 тачек — 12 эффектов</h2>
         <p className={s.sub}>
-          Клик по машине — она подъезжает ближе. Заднее колесо — главная ручка, переднее — Mix, остальное — на табличке.
-          Ниже — в порядке цепочки по умолчанию.
+          кликни по тачке — подъедет поближе, она не гордая. заднее колесо — главная ручка, переднее — mix, остальное на
+          табличке. стоят в порядке цепочки по умолчанию, как в очереди за самсой.
         </p>
         <ol className={s.grid}>
           {cars.map((car, i) => (
@@ -93,11 +104,11 @@ export default function GentraFX() {
               <h3 className={s.tag}>{car.effect}</h3>
               <p className={s.model}>{car.model}</p>
               <dl>
-                <dt>Заднее колесо</dt>
+                <dt>заднее колесо</dt>
                 <dd>{car.rear}</dd>
-                <dt>Табличка</dt>
+                <dt>табличка</dt>
                 <dd>{car.extras}</dd>
-                <dt>На дороге</dt>
+                <dt>на дороге</dt>
                 <dd>{car.tell}</dd>
               </dl>
             </li>
@@ -107,22 +118,22 @@ export default function GentraFX() {
 
       <section className={`${s.section} ${s.split}`}>
         <div>
-          <h2>Гараж = цепочка</h2>
+          <h2>гараж = цепочка (и парковка бесплатная)</h2>
           <ul className={s.bullets}>
-            <li>Сверху вниз — порядок эффектов. Перетащили строку — поменялся звук.</li>
-            <li>Тумблер — на дороге или в гараже. Загнали машину — эффект выключен, вернули — в прежнем состоянии.</li>
-            <li>Новый экземпляр — чистый лист: на дороге одна чёрная Gentra на нуле.</li>
-            <li>Всё, включая порядок и гараж, сохраняется в пресете.</li>
+            <li>сверху вниз — порядок эффектов. перетащил строчку — поменялся звук. продавать тачку не надо.</li>
+            <li>тумблер: на дороге или в гараже. загнал — эффект спит, выгнал — проснулся как был.</li>
+            <li>новый экземпляр — чистый лист: на дороге одна чёрная gentra на нуле, остальные ждут в гараже, как родня на свадьбу.</li>
+            <li>порядок, гараж и всё остальное сохраняется в пресете. гаишник не придерётся.</li>
           </ul>
         </div>
         <figure className={s.shot}>
-          <Image src="/gentra-fx/shot-eq.jpg" alt="Открытая Нексия: эквалайзер с графиком на экране магнитолы" width={1800} height={1120} sizes="(max-width: 900px) 100vw, 560px" />
-          <figcaption>Нексия: эквалайзер, точки на экране магнитолы тянутся мышью.</figcaption>
+          <Image src="/gentra-fx/shot-eq.jpg" alt="открытая нексия: эквалайзер с графиком на экране магнитолы" width={1800} height={1120} sizes="(max-width: 900px) 100vw, 560px" />
+          <figcaption>нексия с эквалайзером. да, в нексии есть экран магнитолы, и точки на нём тянутся мышкой.</figcaption>
         </figure>
       </section>
 
       <section className={s.section}>
-        <h2>Мелочи, которые приятно знать</h2>
+        <h2>мелочи, за которые не стыдно</h2>
         <ul className={s.details}>
           {details.map(([title, text]) => (
             <li key={title}>
@@ -135,18 +146,17 @@ export default function GentraFX() {
 
       <section className={s.section} id="download">
         <div className={`plate ${s.download}`}>
-          <h2>Скачать</h2>
-          <p>
-            {formats}. macOS 11 и новее, Apple Silicon. Windows — позже.
-          </p>
+          <h2>скачать</h2>
+          <p>VST3, AU и standalone. собирается быстрее, чем растаможивается BYD.</p>
           <Soon url={downloadUrl} className={`plate ${s.button}`}>
-            {`Sauce Gentra FX ${version}`}
+            {`sauce gentra fx ${version}`}
           </Soon>
+          <Platforms />
         </div>
       </section>
 
       <footer className={s.footer}>
-        <p className={s.brand}>Secret Sauce</p>
+        <p className={s.brand}>secret sauce</p>
         <nav className={s.links}>
           {links.map(([name, url]) => (
             <Soon key={name} url={url}>
@@ -155,7 +165,7 @@ export default function GentraFX() {
           ))}
         </nav>
         <p>© 2026 lunnaholy</p>
-        <p className={s.fine}>Шрифт PT Sans Narrow — ParaType Free Font License. Сделано на JUCE.</p>
+        <p className={s.fine}>шрифт PT sans narrow — paratype free font license. сделано на JUCE, без запчастей с авторынка.</p>
       </footer>
     </main>
   );

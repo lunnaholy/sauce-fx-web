@@ -7,8 +7,8 @@ const ptSans = localFont({ src: "./fonts/PTSansNarrow-Bold.ttf", variable: "--fo
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sauce.emeel.fyi"),
-  title: { default: "Secret Sauce", template: "%s — Secret Sauce" },
-  description: "Плагины Secret Sauce.",
+  title: { default: "secret sauce", template: "%s — secret sauce" },
+  description: "плагины secret sauce. соус секретный, плагины — нет.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
