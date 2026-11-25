@@ -247,6 +247,14 @@ a.button:hover {
   color: var(--text);
 }
 
+/* Логотип на чёрном фоне: screen убирает чёрное, остаётся белый знак. */
+.dolbit {
+  width: 180px;
+  height: auto;
+  margin-bottom: 4px;
+  mix-blend-mode: screen;
+}
+
 .details p {
   margin-top: 4px;
   color: var(--muted);

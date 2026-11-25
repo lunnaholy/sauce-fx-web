@@ -133,7 +133,13 @@ export default function GentraFX() {
         <ul className={s.details}>
           {details.map(([title, text]) => (
             <li key={title}>
-              <h3>{title}</h3>
+              <h3>
+                {title === "DOLBIT NORMALNO" ? (
+                  <Image src="/gentra-fx/dolbit.png" alt="DOLBIT NORMAL'NO" width={582} height={228} className={s.dolbit} />
+                ) : (
+                  title
+                )}
+              </h3>
               <p>{text}</p>
             </li>
           ))}
