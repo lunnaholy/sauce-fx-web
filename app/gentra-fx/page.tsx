@@ -62,7 +62,7 @@ export default function GentraFX() {
       <section className={s.hero}>
         <div className={s.sky} />
         <header className={s.intro}>
-          <p className={s.presents}>secret sauce presents...</p>
+          <p className={s.presents}>твой новый любимый плагин</p>
           <h1 className={s.badge}>
             <span className="visually-hidden">sauce gentra fx</span>
             <Image src="/gentra-fx/plate.png" alt="" width={380} height={72} priority />
