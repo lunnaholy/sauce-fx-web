@@ -1,7 +1,10 @@
 /* Сцена в единицах плагина (окно 900×560): 1 единица = var(--u), задаётся в .hero страницы.
    Слои и скорости — как drawScene в RoadView.cpp: земля 1, обочина 1.1, фонари 0.8, город 0.1, горы 0.03. */
 .scene {
-  position: relative;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
   height: calc(560 * var(--u));
   overflow: hidden;
   container-type: inline-size;

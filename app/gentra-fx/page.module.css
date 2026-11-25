@@ -1,7 +1,10 @@
 /* ---------- герой ---------- */
 .hero {
-  --u: min(100vw / 900, 72svh / 560);
+  /* Сцена во всю ширину, но не выше экрана; на узких экранах крупнее и обрезается по бокам. */
+  --u: max(min(100vw / 900, 100svh / 560), 100svh / 700);
   position: relative;
+  height: 100svh;
+  min-height: 480px;
   overflow: hidden;
 }
 
@@ -12,15 +15,31 @@
   background: url("/gentra-fx/sky.jpg") center bottom / 100% 100%;
 }
 
+/* Центр — середина дороги: y ≈ 353 из 560, то есть 207 единиц от низа сцены. */
 .intro {
-  position: relative;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: calc(207 * var(--u));
+  transform: translateY(50%);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 14px;
-  padding: clamp(28px, 6vh, 72px) 16px clamp(8px, 2vh, 24px);
+  padding: 0 16px;
   text-align: center;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9), 0 0 18px rgba(0, 0, 0, 0.8);
+}
+
+/* Мягкая тень под текстом, чтобы читался поверх машин. */
+.intro::before {
+  content: "";
+  position: absolute;
+  inset: -40px -10%;
+  z-index: -1;
+  background: radial-gradient(closest-side, rgba(0, 0, 0, 0.6), transparent);
+  pointer-events: none;
 }
 
 /* Номер висит на левом болте и качается; раз в 5 с по нему бежит блик (UI-13 в плагине). */
@@ -75,7 +94,7 @@
 .presents {
   font-size: clamp(16px, 1.8vw, 20px);
   letter-spacing: 0.18em;
-  color: var(--muted);
+  color: var(--text);
 }
 
 .platforms {
