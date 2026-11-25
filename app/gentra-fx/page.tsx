@@ -77,8 +77,8 @@ export default function GentraFX() {
       </section>
 
       <section className={s.section}>
-        <figure className={`${s.shot} ${s.ad}`}>
-          <video src="/gentra-fx/ad.mp4" poster="/gentra-fx/ad-poster.jpg" width={1440} height={1080} controls muted loop playsInline preload="none" />
+        <figure className={s.shot}>
+          <video src="/gentra-fx/ad.mp4" poster="/gentra-fx/ad-poster.jpg" width={1440} height={1080} autoPlay muted loop playsInline />
         </figure>
       </section>
 
