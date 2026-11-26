@@ -8,7 +8,7 @@ import s from "./page.module.css";
 // Все надписи на сайте — с маленькой буквы и с иронией.
 
 // Пустой адрес — «скоро»: строка видна, но не кликается (как aboutLinks в плагине).
-const downloadUrl = "";
+const downloadUrl = "https://github.com/lunnaholy/gentra-fx/releases/latest";
 const links: [name: string, url: string][] = [
   ["telegram", "https://t.me/lnhly"],
   ["github", "https://github.com/lunnaholy/gentra-fx"],
@@ -75,6 +75,10 @@ export default function GentraFX() {
           </div>
         </header>
         <Road />
+        {/* Клик — жест, после него браузер разрешает ролику звук (см. AdVideo). */}
+        <a href="#ad" className={s.bait}>
+          реклама, которую нельзя пропустить <span aria-hidden>↓</span>
+        </a>
       </section>
 
       <section className={s.section}>
