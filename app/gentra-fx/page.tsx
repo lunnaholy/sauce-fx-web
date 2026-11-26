@@ -14,8 +14,6 @@ const links: [name: string, url: string][] = [
   ["github", "https://github.com/lunnaholy/gentra-fx"],
 ];
 
-const version = "1.0.0";
-
 export const metadata: Metadata = {
   title: "sauce gentra fx",
   description: "тачки с дорог ташкента специально для твоей поеботы. VST3 и AU.",
@@ -155,7 +153,7 @@ export default function GentraFX() {
           <h2>скачать</h2>
           <p>VST3 и AU, без растаможки</p>
           <Soon url={downloadUrl} className={`plate ${s.button}`}>
-            {`sauce gentra fx ${version}`}
+            sauce gentra fx
           </Soon>
           <Platforms />
         </div>
