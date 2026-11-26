@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { cars } from "./cars";
+import AdVideo from "./AdVideo";
 import Road, { CarBody } from "./Road";
 import s from "./page.module.css";
 
@@ -78,7 +79,7 @@ export default function GentraFX() {
 
       <section className={s.section}>
         <figure className={s.shot}>
-          <video src="/gentra-fx/ad.mp4" poster="/gentra-fx/ad-poster.jpg" width={1440} height={1080} autoPlay muted loop playsInline />
+          <AdVideo />
         </figure>
       </section>
 
